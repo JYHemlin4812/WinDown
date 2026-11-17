@@ -1,0 +1,12 @@
+node_modules/
+dist/
+out/
+*.log
+.smoke/
+
+# Ressources issues de Mou (via MacDown) : conditions de redistribution non précisées, donc non publiées.
+# Copies locales conservées ; sans elles WinDown retombe sur GitHub.css et Tomorrow+. Voir THIRD-PARTY.md.
+resources/Themes/Mou *.style
+resources/Styles/Clearness.css
+resources/Styles/Clearness Dark.css
+resources/Styles/GitHub2.css

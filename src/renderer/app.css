@@ -1,0 +1,87 @@
+:root {
+  --chrome-bg: #ececec;
+  --chrome-fg: #222;
+  --chrome-border: #c8c8c8;
+  --chrome-hover: rgba(0, 0, 0, 0.08);
+  --chrome-active: rgba(0, 0, 0, 0.16);
+  --accent: #2f7de1;
+  --split: 50%;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+:root.dark {
+  color-scheme: dark;
+  --chrome-bg: #2b2b2b;
+  --chrome-fg: #e2e2e2;
+  --chrome-border: #444;
+  --chrome-hover: rgba(255, 255, 255, 0.1);
+  --chrome-active: rgba(255, 255, 255, 0.2);
+  --accent: #6aa9ff;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; background: var(--chrome-bg); color: var(--chrome-fg); font-size: 13px; }
+body { display: flex; flex-direction: column; }
+
+/* Barre d'outils */
+#toolbar {
+  display: flex; align-items: center; gap: 2px; flex-wrap: wrap;
+  padding: 4px 8px; background: var(--chrome-bg); border-bottom: 1px solid var(--chrome-border);
+  user-select: none;
+}
+#toolbar.hidden { display: none; }
+#toolbar .sep { width: 1px; height: 20px; margin: 0 6px; background: var(--chrome-border); }
+#toolbar button {
+  min-width: 28px; height: 28px; padding: 0 6px; border: 0; border-radius: 4px;
+  background: transparent; color: var(--chrome-fg); font: inherit; font-size: 13px; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+#toolbar button:hover { background: var(--chrome-hover); }
+#toolbar button:active { background: var(--chrome-active); }
+#toolbar button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+#toolbar button.on { background: var(--chrome-active); }
+#toolbar svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+#toolbar .glyph-b { font-weight: 700; }
+#toolbar .glyph-i { font-style: italic; font-family: Georgia, serif; }
+#toolbar .glyph-u { text-decoration: underline; }
+#toolbar .glyph-s { text-decoration: line-through; }
+#toolbar .glyph-h { font-weight: 700; font-size: 12px; }
+#toolbar .glyph-mono { font-family: Consolas, monospace; font-size: 12px; }
+#toolbar .glyph-mark { background: #ffeb3b; color: #000; padding: 0 3px; border-radius: 2px; font-size: 12px; }
+#toolbar .spacer { flex: 1; }
+
+/* Volets */
+#panes { flex: 1; display: flex; min-height: 0; position: relative; }
+#panes.editor-right { flex-direction: row-reverse; }
+#editorPane { position: relative; flex: 0 0 var(--split); min-width: 0; display: flex; flex-direction: column; }
+#previewPane { flex: 1 1 0; min-width: 0; background: #fff; position: relative; }
+#editor { flex: 1; min-height: 0; }
+#editor .cm-editor { height: 100%; }
+#preview { width: 100%; height: 100%; border: 0; background: #fff; display: block; }
+#panes.dragging #preview { pointer-events: none; }
+#splitter { flex: 0 0 5px; cursor: col-resize; background: var(--chrome-border); }
+#splitter:hover, #panes.dragging #splitter { background: var(--accent); }
+#editorPane.hidden, #previewPane.hidden { display: none; }
+#panes.only-one #splitter { display: none; }
+#panes.only-one #editorPane { flex: 1 1 0; }
+
+/* Compteur */
+#wordCount {
+  position: absolute; right: 14px; bottom: 8px; padding: 2px 8px; border: 0; border-radius: 10px;
+  background: rgba(0, 0, 0, 0.55); color: #fff; font: inherit; font-size: 12px; cursor: pointer; opacity: 0.85;
+}
+#wordCount:hover { opacity: 1; }
+
+/* Boîte de dialogue interne */
+#modalRoot:empty { display: none; }
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.35); display: flex; align-items: center; justify-content: center; z-index: 50; }
+.modal { min-width: 340px; max-width: 480px; padding: 18px 20px; border-radius: 8px; background: var(--chrome-bg); color: var(--chrome-fg); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35); }
+.modal h2 { margin: 0 0 12px; font-size: 15px; }
+.modal label { display: flex; gap: 8px; align-items: center; margin: 8px 0; }
+.modal .actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+.modal button { padding: 5px 14px; border-radius: 5px; border: 1px solid var(--chrome-border); background: transparent; color: var(--chrome-fg); font: inherit; cursor: pointer; }
+.modal button.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.modal button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  #toolbar button { transition: background 0.08s; }
+}

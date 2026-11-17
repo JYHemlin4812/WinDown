@@ -1,0 +1,42 @@
+:root {
+  --bg: #f4f4f4; --fg: #1d1d1d; --muted: #666; --border: #cfcfcf; --accent: #2f7de1; --panel: #fff;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #2a2a2a; --fg: #e6e6e6; --muted: #a0a0a0; --border: #454545; --accent: #6aa9ff; --panel: #333; }
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--fg); font-size: 13px; }
+body { display: flex; flex-direction: column; }
+
+#tabs { display: flex; gap: 4px; padding: 8px 10px 0; border-bottom: 1px solid var(--border); }
+#tabs button {
+  padding: 8px 16px; border: 0; border-bottom: 3px solid transparent; background: transparent;
+  color: var(--muted); font: inherit; cursor: pointer;
+}
+#tabs button:hover { color: var(--fg); }
+#tabs button[aria-selected="true"] { color: var(--fg); border-bottom-color: var(--accent); font-weight: 600; }
+#tabs button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+#content { flex: 1; overflow: auto; padding: 16px 20px 24px; }
+fieldset { border: 1px solid var(--border); border-radius: 6px; margin: 0 0 14px; padding: 8px 14px 10px; background: var(--panel); }
+legend { padding: 0 6px; font-weight: 600; }
+.row { display: flex; align-items: center; gap: 8px; margin: 7px 0; flex-wrap: wrap; }
+.row > label.lead { min-width: 130px; color: var(--muted); }
+.check { display: flex; align-items: flex-start; gap: 8px; margin: 6px 0; line-height: 1.35; }
+.check input { margin-top: 2px; }
+.check.indent { margin-left: 24px; }
+.check.disabled { opacity: 0.5; }
+input[type="text"], input[type="number"], select {
+  font: inherit; color: var(--fg); background: var(--bg); border: 1px solid var(--border); border-radius: 4px; padding: 3px 6px;
+}
+input[type="number"] { width: 72px; }
+input[type="text"].wide { flex: 1; min-width: 200px; }
+input:focus-visible, select:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+button.btn { font: inherit; color: var(--fg); background: var(--panel); border: 1px solid var(--border); border-radius: 4px; padding: 3px 12px; cursor: pointer; }
+button.btn:hover { border-color: var(--accent); }
+.note { color: var(--muted); margin: 6px 0; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #c0392b; margin-right: 6px; }
+.dot.ok { background: #2e9e4f; }
+.error { color: #c0392b; margin-top: 8px; }
+code { font-family: Consolas, monospace; }

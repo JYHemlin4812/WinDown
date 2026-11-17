@@ -1,0 +1,17 @@
+{
+  "version": "4.0",
+  "project_name": "WinDown",
+  "output_language": "fr",
+  "primary_language": "javascript",
+  "secondary_languages": [],
+  "model_profile": "inherit",
+  "auto_approve": false,
+  "asvs_level": 1,
+  "max_retry_per_task": 3,
+  "fresh_context_per_task": true,
+  "wave_parallelism": false,
+  "test_coverage_min": 0.7,
+  "code_lock_enabled": false,
+  "documentation_tier": "minimal",
+  "project_size_estimate": "medium"
+}

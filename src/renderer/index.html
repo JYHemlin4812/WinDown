@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; frame-src windown-preview:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WinDown</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div id="toolbar" role="toolbar"></div>
+<div id="panes">
+  <section id="editorPane">
+    <div id="editor"></div>
+    <button id="wordCount" type="button" hidden></button>
+  </section>
+  <div id="splitter" role="separator" aria-orientation="vertical"></div>
+  <section id="previewPane">
+    <iframe id="preview" sandbox="allow-scripts" src="windown-preview://frame/frame.html" title="Preview"></iframe>
+  </section>
+</div>
+<div id="modalRoot"></div>
+<script src="app.js"></script>
+</body>
+</html>

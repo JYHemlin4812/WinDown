@@ -1,0 +1,48 @@
+{
+  "name": "windown",
+  "version": "0.1.0",
+  "private": true,
+  "description": "WinDown : éditeur Markdown avec aperçu en direct pour Windows, inspiré de MacDown",
+  "license": "MIT",
+  "main": "src/main/main.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/build.mjs && electron .",
+    "test": "node --test \"test/*.test.js\"",
+    "smoke": "node scripts/build.mjs && node scripts/smoke.mjs",
+    "package": "node scripts/build.mjs && node scripts/package.mjs"
+  },
+  "dependencies": {
+    "@codemirror/commands": "^6.11.1",
+    "@codemirror/lang-markdown": "^6.5.2",
+    "@codemirror/language": "^6.13.1",
+    "@codemirror/language-data": "^6.5.2",
+    "@codemirror/search": "^6.7.2",
+    "@codemirror/state": "^6.7.6",
+    "@codemirror/view": "^6.43.15",
+    "@lezer/highlight": "^1.2.5",
+    "@viz-js/viz": "^3.31.0",
+    "codemirror": "^6.0.2",
+    "markdown-it": "^15.0.3",
+    "markdown-it-footnote": "^4.0.0",
+    "markdown-it-mark": "^4.0.0",
+    "markdown-it-task-lists": "^2.1.1",
+    "mathjax": "^4.1.3",
+    "mermaid": "^12.3.0",
+    "prismjs": "^1.30.0"
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.3.0",
+    "electron": "^45.3.3",
+    "esbuild": "^0.28.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "electron",
+      "esbuild"
+    ]
+  }
+}
