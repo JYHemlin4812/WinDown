@@ -317,7 +317,7 @@ test('À propos : version Windows JYH 2026 et attribution à l’auteur de MacDo
 
 test('Licences : texte MIT de MacDown intact, avis de copyright dans LICENSE, licences.md et le paquet', () => {
   const root = path.join(__dirname, '..');
-  const upstream = fs.readFileSync(path.join(root, 'resources', 'LICENSE-MacDown.txt'), 'utf8');
+  const upstream = fs.readFileSync(path.join(root, 'resources', 'LICENSE-MacDown.txt'), 'utf8').replace(/\r\n/g, '\n');
   assert.match(upstream, /Copyright \(c\) 2014 Tzu-ping Chung/);
   assert.match(upstream, /The above copyright notice and this permission notice shall be included in\nall copies or substantial portions of the Software\./);
   const licence = fs.readFileSync(path.join(root, 'LICENSE'), 'utf8');

@@ -11,7 +11,7 @@ y compris pour les formules (MathJax), les diagrammes (Mermaid, Graphviz) et la 
 
 ```powershell
 cd Dev\_actifs\WinDown
-pnpm install          # une fois (autorise les scripts d'Electron et d'esbuild : voir package.json)
+pnpm install          # une fois (pnpm-workspace.yaml autorise les scripts d'Electron et d'esbuild ; pnpm 10 ou plus récent)
 pnpm start            # construit dist/ puis ouvre WinDown
 pnpm start -- chemin\vers\fichier.md
 pnpm test             # 68 tests unitaires (Node)

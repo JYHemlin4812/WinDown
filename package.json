@@ -10,10 +10,10 @@
   },
   "scripts": {
     "build": "node scripts/build.mjs",
-    "start": "node scripts/build.mjs && electron .",
+    "start": "node scripts/ensure-electron.mjs && node scripts/build.mjs && electron .",
     "test": "node --test \"test/*.test.js\"",
-    "smoke": "node scripts/build.mjs && node scripts/smoke.mjs",
-    "package": "node scripts/build.mjs && node scripts/package.mjs"
+    "smoke": "node scripts/ensure-electron.mjs && node scripts/build.mjs && node scripts/smoke.mjs",
+    "package": "node scripts/ensure-electron.mjs && node scripts/build.mjs && node scripts/package.mjs"
   },
   "dependencies": {
     "@codemirror/commands": "^6.11.1",
@@ -38,11 +38,5 @@
     "@electron/packager": "^20.3.0",
     "electron": "^45.3.3",
     "esbuild": "^0.28.2"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "electron",
-      "esbuild"
-    ]
   }
 }
