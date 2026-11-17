@@ -326,6 +326,6 @@ test('Licences : texte MIT de MacDown intact, avis de copyright dans LICENSE, li
   const doc = fs.readFileSync(path.join(root, 'resources', 'licences.md'), 'utf8');
   assert.match(doc, /Copyright \(c\) 2014 Tzu-ping Chung/);
   assert.match(doc, /Version Windows JYH 2026/);
-  assert.match(doc, /ni approuvé ni\naffilié/);
+  assert.match(doc.replace(/\s+/g, ' '), /ni approuvé ni affilié/);
   assert.match(fs.readFileSync(path.join(root, 'scripts', 'package.mjs'), 'utf8'), /LICENSE-MacDown\.txt/);
 });
